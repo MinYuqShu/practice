@@ -1,25 +1,28 @@
-#include <stdio.h>	
-int main() {
+    #include <stdio.h>
 
+    int main() {
+        int num1, cycle = 0;
+        int ten, one, sum;
+    
+        printf("[>]0~99사이의 정수를 입력해주세요\n");
+        printf("[<]");
+        scanf_s("%d", &num1);
+        int num2 = num1;
 
-	int num1, num2,num3;
-	printf("[>] 몇 단까지 출력할지 입력해주세요\n");
-	printf("[<] ");
-	scanf_s("%d", &num2);
+        while (1) {
+            cycle++;
+            ten = num1 / 10; /*십의 자리수*/
+            one = num1 % 10; /*일의 자리수*/
+            sum = ten + one; /*각 자리수 의 합*/
+            if (sum >= 10) {
+                sum %= 10; /*10이 넘으면 일의 자리수만 사용*/
+            }
+            num1 = one * 10 + sum; /*두자리수 만들기*/
+            if (num1 == num2) { 
+                break;
+            }
+        }
 
-	for (num1=1;num1<=9;num1++) /*1부터 9까지 구구단 출력*/
-	{
-		for (num3=2;num3 <= num2; num3++) /*2단부터 입력한 값까지 출력*/
-		{
-			printf("%d * %d = %d\t", num3, num1 , num1 * num3);
-
-
-		}
-		printf("\n");
-
-
-
-	}
-
-       return 0;
-}
+        printf("[>]총 사이클수 : %d", cycle);
+        return 0;
+    }
