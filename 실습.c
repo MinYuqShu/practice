@@ -17,7 +17,7 @@ int main() {
 
 	}
 
-	printf("ÃÖ´ñ°ªÀº %dÀÔ´Ï´Ù", max);
+	printf("ìµœëŒ€ê°’ì€ %dì…ë‹ˆë‹¤", max);
 
 	return 0;
 }
