@@ -1,17 +1,18 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 int main() {
-	printf("->��������� �Է����ּ��� ex)040115\n");
-	printf("00��� ���� ����� 19xx�⵵ 00��� ���ʹ� 20xx�⵵\n");
-	int year, month, day, num;
-	scanf("%d", & num);
+	printf("->생년월일을 입력해주세요 ex)040115\n");
+	printf("00년생 이전 사람은 19xx년도 00년생 부터는 20xx년도\n");
+	int year, month, day, num; // 변수를 년, 달, 일, 입력값으로 나눔
+	scanf("%d", & num); // 입력값 
 
-	year = num / 10000;
-	month = (num % 10000) / 100;
-	day = (num % 10000) % 100;
+	year = num / 10000; // 6자리로 입력했기 때문에 만으로 나누면 10의 자리의 숫자가 나옴 
+	month = (num % 10000) / 100; //만으로 나눈값의 나머지를 또 백으로 나눴기 때문에 천의 자리 부터 백의 자리 숫자가 나온다.
+	day = (num % 10000) % 100; // 만으로 나눈값의 나머지를 또 100의 자리로 나눈 나머지는 10의 자리 부터 1의 자리 숫자가 나온다. 
 
 	
-		printf("%d�⵵ %d�� %d�Ͽ� �¾�˱���!\n", year > 23 ? 1900 + year : 2000 + year, month, day);
+		printf("%d년도 %d월 %d일에 태어나셧군요!\n", year > 23 ? 1900 + year : 2000 + year, month, day); /*만약 년도가 23보다 크면 1900을 더하고 아니면 2000을 더한다.
+왜냐하면 2024년생은 제외 했기 때문이다. 대신 1923년생과 그 밑에 연도는 고려하지 않았다.*/
 
 		return 0;
 }
